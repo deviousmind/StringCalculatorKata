@@ -1,3 +1,4 @@
 ﻿namespace StringCalculatorKata.Logic
 
-type StringCalculator() = class end
+type StringCalculator() = 
+    member x.Add stringValue = 0
