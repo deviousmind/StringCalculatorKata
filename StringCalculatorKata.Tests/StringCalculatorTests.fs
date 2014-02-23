@@ -13,9 +13,10 @@ type StringCalculatorTests() =
         let result = calc.Add ""
         Assert.That(result, Is.EqualTo 0)
 
-    [<Test>]
-    member x.Add_Returns_Value_For_String_With_Single_Value() =
+    [<TestCase("1", 1)>]
+    [<TestCase("2", 2)>]
+    [<TestCase("3", 3)>]
+    member x.Add_Returns_Value_For_String_With_Single_Value(stringValue, expectedValue) =
         let calc = StringCalculator()
-        let result = calc.Add "1"
-        let expectedValue = 1
+        let result = calc.Add stringValue
         Assert.That(result, Is.EqualTo expectedValue)
