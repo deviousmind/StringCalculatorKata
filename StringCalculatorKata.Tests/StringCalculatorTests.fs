@@ -30,3 +30,10 @@ type StringCalculatorTests() =
     member x.Add_Returns_The_Sum_Of_Two_Numbers_Separated_By_A_Comma(stringValue, expectedValue) =
         let result = calc.Add stringValue
         Assert.That(result, Is.EqualTo expectedValue)
+
+    [<TestCase("1,2,3", 6)>]
+    [<TestCase("1,3,5", 9)>]
+    [<TestCase("2,4,6", 12)>]
+    member x.Add_Returns_The_Sum_Of_Any_Number_Of_Comma_Separated_Numbers(stringValue, expectedValue) = 
+        let result = calc.Add stringValue
+        Assert.That(result, Is.EqualTo expectedValue)
