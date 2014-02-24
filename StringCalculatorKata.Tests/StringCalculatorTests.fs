@@ -24,7 +24,9 @@ type StringCalculatorTests() =
         let result = calc.Add stringValue
         Assert.That(result, Is.EqualTo expectedValue)
 
-    [<Test>]
-    member x.Add_Returns_The_Sum_Of_Two_Numbers_Separated_By_A_Comma() =
-        let result = calc.Add "1,2"
-        Assert.That(result, Is.EqualTo 3)
+    [<TestCase("1,1", 2)>]
+    [<TestCase("1,2", 3)>]
+    [<TestCase("2,3", 5)>]
+    member x.Add_Returns_The_Sum_Of_Two_Numbers_Separated_By_A_Comma(stringValue, expectedValue) =
+        let result = calc.Add stringValue
+        Assert.That(result, Is.EqualTo expectedValue)
